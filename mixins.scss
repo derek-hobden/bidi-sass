@@ -1,0 +1,295 @@
+//BIDIRECTIONAL MARGIN
+@mixin bidi-margin($top, $after, $bottom, $before) {
+  @at-root [dir="ltr"] & {
+    margin: $top $after $bottom $before;
+  }
+
+  @at-root [dir="rtl"] & {
+    margin: $top $before $bottom $after;
+  }
+}
+
+//BIDIRECTIONAL MARGIN-LEFT
+@mixin bidi-margin-left($before) {
+  @at-root [dir="ltr"] & {
+    margin-left: $before;
+  }
+
+  @at-root [dir="rtl"] & {
+    margin-right: $before;
+  }
+}
+
+//BIDIRECTIONAL MARGIN-RIGHT
+@mixin bidi-margin-right($after) {
+  @at-root [dir="ltr"] & {
+    margin-right: $after;
+  }
+
+  @at-root [dir="rtl"] & {
+    margin-left: $after;
+  }
+}
+
+//BIDIRECTIONAL LEFT
+@mixin bidi-left($distance) {
+  @at-root [dir="ltr"] & {
+    left: $distance;
+  }
+
+  @at-root [dir="rtl"] & {
+    right: $distance;
+  }
+}
+
+//BIDIRECTIONAL RIGHT
+@mixin bidi-right($distance) {
+  @at-root [dir="ltr"] & {
+    right: $distance;
+  }
+
+  @at-root [dir="rtl"] & {
+    left: $distance;
+  }
+}
+
+//BIDIRECTIONAL BORDER-RADIUS
+@mixin bidi-border-radius($top-near, $top-far, $bottom-far, $bottom-near) {
+  @at-root [dir="ltr"] & {
+    border-radius: $top-near $top-far $bottom-far $bottom-near;
+  }
+
+  @at-root [dir="rtl"] & {
+    border-radius: $top-far $top-near $bottom-near $bottom-far;
+  }
+}
+
+//BIDIRECTIONAL PADDING
+@mixin bidi-padding($top, $after, $bottom, $before) {
+  @at-root [dir="ltr"] & {
+    padding: $top $after $bottom $before;
+  }
+
+  @at-root [dir="rtl"] & {
+    padding: $top $before $bottom $after;
+  }
+}
+
+//BIDIRECTIONAL PADDING-LEFT
+@mixin bidi-padding-left($before) {
+  @at-root [dir="ltr"] & {
+    padding-left: $before;
+  }
+
+  @at-root [dir="rtl"] & {
+    padding-right: $before;
+  }
+}
+
+//BIDIRECTIONAL PADDING-RIGHT
+@mixin bidi-padding-right($after) {
+  @at-root [dir="ltr"] & {
+    padding-right: $after;
+  }
+
+  @at-root [dir="rtl"] & {
+    padding-left: $after;
+  }
+}
+
+//BIDIRECTIONAL TRANSLATE(X, Y)
+@mixin bidi-translate($x, $y) {
+  @at-root [dir="ltr"] & {
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
+  }
+
+  @at-root [dir="rtl"] & {
+    -webkit-transform: translate(-$x, $y);
+    -moz-transform: translate(-$x, $y);
+    -ms-transform: translate(-$x, $y);
+    -o-transform: translate(-$x, $y);
+    transform: translate(-$x, $y);
+  }
+}
+
+//BIDIRECTIONAL SKEW(DEG)
+@mixin bidi-skew($deg) {
+  @at-root [dir="ltr"] & {
+    -webkit-transform: skew($deg);
+    -moz-transform: skew($deg);
+    -ms-transform: skew($deg);
+    -o-transform: skew($deg);
+    transform: skew($deg);
+  }
+
+  @at-root [dir="rtl"] & {
+    -webkit-transform: skew(-($deg));
+    -moz-transform: skew(-($deg));
+    -ms-transform: skew(-($deg));
+    -o-transform: skew(-($deg));
+    transform: skew(-($deg));
+  }
+}
+
+//BIDIRECTIONAL TRANSLATE CALC(X + OFFSET, Y)
+@mixin bidi-calc-translate($x, $offset, $y) {
+  @at-root [dir="ltr"] & {
+    -webkit-transform: translate(calc(#{$x} + #{$offset}), $y);
+    -moz-transform: translate(calc(#{$x} + #{$offset}), $y);
+    -ms-transform: translate(calc(#{$x} + #{$offset}), $y);
+    -o-transform: translate(calc(#{$x} + #{$offset}), $y);
+    transform: translate(calc(#{$x} + #{$offset}), $y);
+  }
+
+  @at-root [dir="rtl"] & {
+    -webkit-transform: translate(calc(#{-$x} + #{-$offset}), $y);
+    -moz-transform: translate(calc(#{-$x} + #{-$offset}), $y);
+    -ms-transform: translate(calc(#{-$x} + #{-$offset}), $y);
+    -o-transform: translate(calc(#{-$x} + #{-$offset}), $y);
+    transform: translate(calc(#{-$x} + #{-$offset}), $y);
+  }
+}
+
+//BIDIRECTIONAL FLOAT
+@mixin bidi-float($direction) {
+  @if $direction == "left" {
+    @at-root [dir="ltr"] & {
+      float: left;
+    }
+
+    @at-root [dir="rtl"] & {
+      float: right;
+    }
+  }
+  @else {
+    @at-root [dir="ltr"] & {
+      float: right;
+    }
+
+    @at-root [dir="rtl"] & {
+      float: left;
+    }
+  }
+}
+
+//BIDIRECTIONAL TEXT-ALIGN
+@mixin bidi-text-align($direction) {
+  @if $direction == "left" {
+    @at-root [dir="ltr"] & {
+      text-align: left;
+    }
+
+    @at-root [dir="rtl"] & {
+      text-align: right;
+    }
+  }
+  @else {
+    @at-root [dir="ltr"] & {
+      text-align: right;
+    }
+
+    @at-root [dir="rtl"] & {
+      text-align: left;
+    }
+  }
+}
+
+//BIDIRECTIONAL TRANSLATE3D
+@mixin bidi-translate3d($x, $y, $z) {
+  @at-root [dir="ltr"] & {
+    -webkit-transform: translate3d($x, $y, $z);
+    -moz-transform: translate3d($x, $y, $z);
+    -ms-transform: translate3d($x, $y, $z);
+    -o-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
+  }
+
+  @at-root [dir="rtl"] & {
+    -webkit-transform: translate3d(-$x, $y, $z);
+    -moz-transform: translate3d(-$x, $y, $z);
+    -ms-transform: translate3d(-$x, $y, $z);
+    -o-transform: translate3d(-$x, $y, $z);
+    transform: translate3d(-$x, $y, $z);
+  }
+}
+
+//BIDIRECTIONAL BACKGROUND-POSITION
+@mixin bidi-background-position($leftright, $topbottom) {
+  @if $leftright == "left" {
+    @at-root [dir="ltr"] & {
+      background-position: left $topbottom;
+    }
+
+    @at-root [dir="rtl"] & {
+      background-position: right $topbottom;
+    }
+  }
+  @else {
+    @at-root [dir="ltr"] & {
+      background-position: right $topbottom;
+    }
+
+    @at-root [dir="rtl"] & {
+      background-position: left $topbottom;
+    }
+  }
+}
+
+//BIDIRECTIONAL BACKGROUND-POSITION WITH ARABIC OFFSET
+@mixin bidi-background-position-with-offset($leftright, $offset, $topbottom) {
+  @if $leftright == "left" {
+    @at-root [dir="ltr"] & {
+      background-position: left $offset $topbottom;
+    }
+
+    @at-root [dir="rtl"] & {
+      background-position: right $offset $topbottom;
+    }
+  }
+  @else {
+    @at-root [dir="ltr"] & {
+      background-position: right $offset $topbottom;
+    }
+
+    @at-root [dir="rtl"] & {
+      background-position: left $offset $topbottom;
+    }
+  }
+}
+
+//BIDIRECTIONAL BORDER-RIGHT
+@mixin bidi-border-right($border) {
+  @at-root [dir="ltr"] & {
+    border-right: $border;
+  }
+
+  @at-root [dir="rtl"] & {
+    border-left: $border;
+  }
+}
+
+//BIDIRECTIONAL BORDER-LEFT
+@mixin bidi-border-left($border) {
+  @at-root [dir="ltr"] & {
+    border-left: $border;
+  }
+
+  @at-root [dir="rtl"] & {
+    border-right: $border;
+  }
+}
+
+//BIDIRECTIONAL BORDER-WIDTH
+@mixin bidi-border-width($border) {
+  @at-root [dir="ltr"] & {
+    border-left: $border;
+  }
+
+  @at-root [dir="rtl"] & {
+    border-right: $border;
+  }
+}
