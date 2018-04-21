@@ -24,6 +24,8 @@ You would now have:
 
 This will put the margin on the left for english sites, and on the right for arabic sites.
 
+---
+
 If you need margins on both sides, you can do this:
 ```
 .some-class {
@@ -48,5 +50,5 @@ So far it supports:
 - borders
 - border-widths
 
-## Bootstrap and other CSS Frameworks
+## What about CSS Frameworks (like bootstrap)
 In private projects I have applied this to make bootstrap column layout bidirectional. I can start including files for things like this if there is a demand, although it is quite simple to do.
